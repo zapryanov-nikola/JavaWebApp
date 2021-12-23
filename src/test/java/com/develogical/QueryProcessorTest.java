@@ -70,6 +70,11 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("26add640: what is 8 minus 4" ), containsString("4"));
     }
 
+    @Test
+    public void canRaiseToPower() throws Exception {
+        assertThat(queryProcessor.process("5a82d160: what is 2 to the power of 3" ), containsString("8"));
+    }
+
 
     @Test
     public void isNotCaseSensitive() throws Exception {
