@@ -17,8 +17,8 @@ public class QueryProcessor {
         } else if (lowerCaseQuery.contains("what is your name")) {
             return "nikraphael";
         } else if (lowerCaseQuery.contains("what is") && lowerCaseQuery.contains("plus")) {
-            int first = Integer.parseInt(query.toLowerCase().split(" ")[2]);
-            int second = Integer.parseInt(query.toLowerCase().split(" ")[4]);
+            int first = Integer.parseInt(query.toLowerCase().split(" ")[3]);
+            int second = Integer.parseInt(query.toLowerCase().split(" ")[5]);
             int sum = first + second;
 
             return String.format("%d", sum);
