@@ -16,13 +16,13 @@ public class QueryProcessor {
             return "this is a horse";
         } else if (lowerCaseQuery.contains("what is your name")) {
             return "nikraphael";
-        } else if (lowerCaseQuery.startsWith("what is") && lowerCaseQuery.contains("plus")) {
+        } else if (lowerCaseQuery.contains("what is") && lowerCaseQuery.contains("plus")) {
             int first = Integer.parseInt(query.toLowerCase().split(" ")[2]);
             int second = Integer.parseInt(query.toLowerCase().split(" ")[4]);
             int sum = first + second;
 
             return String.format("%d", sum);
-        } else if (lowerCaseQuery.startsWith("which of the following numbers is the largest:")) {
+        } else if (lowerCaseQuery.contains("which of the following numbers is the largest:")) {
             List<String> numbers = Arrays.asList(lowerCaseQuery.split(":")[1].trim().split(", "));
             int max = 0;
             for (String number :
