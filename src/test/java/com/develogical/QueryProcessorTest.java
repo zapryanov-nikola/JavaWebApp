@@ -37,9 +37,11 @@ public class QueryProcessorTest {
 
     @Test
     public void findsLargest() throws Exception {
-        assertThat(queryProcessor.process("which of the following numbers is the largest: 20, 50, 40"), containsString("50"));
+        assertThat(queryProcessor.process("11f0d840: which of the following numbers is the largest: 998, 6"), containsString("998"));
     }
 
+    
+    
     @Test
     public void isNotCaseSensitive() throws Exception {
         assertThat(queryProcessor.process("shakespeare"), containsString("playwright"));

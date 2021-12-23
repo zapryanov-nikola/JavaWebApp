@@ -23,7 +23,7 @@ public class QueryProcessor {
 
             return String.format("%d", sum);
         } else if (lowerCaseQuery.contains("which of the following numbers is the largest:")) {
-            List<String> numbers = Arrays.asList(lowerCaseQuery.split(":")[1].trim().split(", "));
+            List<String> numbers = Arrays.asList(lowerCaseQuery.split(":")[2].trim().split(", "));
             int max = 0;
             for (String number :
                     numbers) {
