@@ -44,7 +44,12 @@ public class QueryProcessorTest {
     public void findsLargest() throws Exception {
         assertThat(queryProcessor.process("11f0d840: which of the following numbers is the largest: 998, 6"), containsString("998"));
     }
-    
+
+    @Test
+    public void findsCubeAndSquare() throws Exception {
+        assertThat(queryProcessor.process("b15a1560: which of the following numbers is both a square and a cube: 46656, 93"), containsString("46656"));
+    }
+
     
     @Test
     public void isNotCaseSensitive() throws Exception {

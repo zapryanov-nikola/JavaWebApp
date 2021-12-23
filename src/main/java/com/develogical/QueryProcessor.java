@@ -37,7 +37,29 @@ public class QueryProcessor {
             int product = first * second;
 
             return String.format("%d", product);
+        } else if (lowerCaseQuery.contains("which of the following numbers is both a square and a cube")) {
+            List<String> numbers = Arrays.asList(query.toLowerCase().split(":")[2].trim().split(", "));
+            int both = 0;
+            for (String number :
+                    numbers) {
+                int actualNumber = Integer.parseInt(number);
+                if (isCube(actualNumber) && isSquareRoot(actualNumber)) {
+                    both = actualNumber;
+                }
+            }
+
+            return String.format("%d", both);
         }
         return "";
+    }
+
+    private boolean isCube(double input) {
+        double cubeRoot = Math.cbrt(input); // get the cube root
+        return Math.round(cubeRoot) == cubeRoot; // determine if number is integral
+    }
+
+    private boolean isSquareRoot(double input) {
+        double squareRoot = Math.sqrt(input); // get the cube root
+        return Math.round(squareRoot) == squareRoot; // determine if number is integral
     }
 }
