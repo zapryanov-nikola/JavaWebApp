@@ -55,9 +55,16 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("49cfac60: which city is the Eiffel tower in"), containsString("Paris"));
     }
 
+    @Test
+    public void findsPrimeNumber() throws Exception {
+        assertThat(queryProcessor.process("addc8f80: which of the following numbers are primes: 118, 191, 29, 839"), containsString("191"));
+    }
+
 
     @Test
     public void isNotCaseSensitive() throws Exception {
         assertThat(queryProcessor.process("1c0c0400: shakespeare"), containsString("playwright"));
     }
 }
+
+

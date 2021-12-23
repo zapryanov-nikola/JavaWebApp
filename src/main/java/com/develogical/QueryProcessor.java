@@ -44,15 +44,22 @@ public class QueryProcessor {
                     numbers) {
                 int actualNumber = Integer.parseInt(number);
                 if (isCube(actualNumber) && isSquareRoot(actualNumber)) {
-                    both = actualNumber;
+                    return String.format("%d", both);
                 }
             }
-            if (both == 0) {
-                return "";
-            }
-            return String.format("%d", both);
+            return "";
         } else if (lowerCaseQuery.contains("which city is the eiffel tower in")) {
             return "Paris";
+        } else if (lowerCaseQuery.contains("which of the following numbers are primes")) {
+            List<String> numbers = Arrays.asList(query.toLowerCase().split(":")[2].trim().split(", "));
+            for (String number :
+                    numbers) {
+                int actualNumber = Integer.parseInt(number);
+                if (isPrime(actualNumber)) {
+                    return String.format("%d", actualNumber);
+                }
+            }
+            return "";
         }
         return "";
     }
@@ -65,5 +72,24 @@ public class QueryProcessor {
     private boolean isSquareRoot(double input) {
         double squareRoot = Math.sqrt(input); // get the cube root
         return Math.round(squareRoot) == squareRoot; // determine if number is integral
+    }
+
+    private boolean isPrime(int n) {
+        // Corner cases
+        if (n <= 1)
+            return false;
+        if (n <= 3)
+            return true;
+
+        // This is checked so that we can skip
+        // middle five numbers in below loop
+        if (n % 2 == 0 || n % 3 == 0)
+            return false;
+
+        for (int i = 5; i * i <= n; i = i + 6)
+            if (n % i == 0 || n % (i + 2) == 0)
+                return false;
+
+        return true;
     }
 }
