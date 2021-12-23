@@ -12,22 +12,22 @@ public class QueryProcessorTest {
 
     @Test
     public void returnsEmptyStringIfCannotProcessQuery() throws Exception {
-        assertThat(queryProcessor.process("test"), is(""));
+        assertThat(queryProcessor.process("1c0c0400: test"), is(""));
     }
 
     @Test
     public void knowsAboutShakespeare() throws Exception {
-        assertThat(queryProcessor.process("Shakespeare"), containsString("playwright"));
+        assertThat(queryProcessor.process("1c0c0400: Shakespeare"), containsString("playwright"));
     }
 
     @Test
     public void knowsAboutHorses() throws Exception {
-        assertThat(queryProcessor.process("horse"), containsString("horse"));
+        assertThat(queryProcessor.process("1c0c0400: horse"), containsString("horse"));
     }
 
     @Test
     public void knowsMyName() throws Exception {
-        assertThat(queryProcessor.process("what is your name"), containsString("nikraphael"));
+        assertThat(queryProcessor.process("1c0c0400: what is your name"), containsString("nikraphael"));
     }
 
     @Test
@@ -48,6 +48,6 @@ public class QueryProcessorTest {
     
     @Test
     public void isNotCaseSensitive() throws Exception {
-        assertThat(queryProcessor.process("shakespeare"), containsString("playwright"));
+        assertThat(queryProcessor.process("1c0c0400: shakespeare"), containsString("playwright"));
     }
 }
