@@ -52,14 +52,15 @@ public class QueryProcessor {
             return "Paris";
         } else if (lowerCaseQuery.contains("which of the following numbers are primes")) {
             List<String> numbers = Arrays.asList(query.toLowerCase().split(":")[2].trim().split(", "));
+            String answer = "";
             for (String number :
                     numbers) {
                 int actualNumber = Integer.parseInt(number);
                 if (isPrime(actualNumber)) {
-                    return String.format("%d", actualNumber);
+                    answer = answer + String.format("%d", actualNumber) + ", ";
                 }
             }
-            return "";
+            return removeLastChar(answer, 2);
         } else if (lowerCaseQuery.contains("number in the fibonacci sequence")) {
             int term = Integer.parseInt(removeLastChar(lowerCaseQuery.split(" ")[3], 2));
 
