@@ -21,3 +21,9 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B verify --file pom.xml
+    - name: Deploy to Heroku
+      uses: AkhileshNS/heroku-deploy@v3.12.12
+      with:
+          heroku_api_key: ${{secrets.HEROKU_KEY}}
+          heroku_app_name: horse-batter-67
+          heroku_email: kusharata@mail.com
