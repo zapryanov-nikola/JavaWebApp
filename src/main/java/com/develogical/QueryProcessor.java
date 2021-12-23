@@ -22,6 +22,12 @@ public class QueryProcessor {
             int sum = first + second;
 
             return String.format("%d", sum);
+        } else if (lowerCaseQuery.contains("what is") && lowerCaseQuery.contains("minus")) {
+            int first = Integer.parseInt(lowerCaseQuery.split(" ")[2]);
+            int second = Integer.parseInt(lowerCaseQuery.split(" ")[4]);
+            int diff = first - second;
+
+            return String.format("%d", diff);
         } else if (lowerCaseQuery.contains("which of the following numbers is the largest")) {
             List<String> numbers = Arrays.asList(query.toLowerCase().split(":")[2].trim().split(", "));
             int max = 0;

@@ -65,9 +65,15 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("1d944e40: what is the 10th number in the Fibonacci sequence" ), containsString("55"));
     }
 
+    @Test
+    public void canSubstract() throws Exception {
+        assertThat(queryProcessor.process("26add640: what is 8 minus 4" ), containsString("4"));
+    }
+
 
     @Test
     public void isNotCaseSensitive() throws Exception {
         assertThat(queryProcessor.process("1c0c0400: shakespeare"), containsString("playwright"));
     }
 }
+
