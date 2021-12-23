@@ -17,9 +17,12 @@ public class QueryProcessor {
         } else if (lowerCaseQuery.contains("what is your name")) {
             return "nikraphael";
         } else if (lowerCaseQuery.contains("what is") && lowerCaseQuery.contains("plus")) {
-            int first = Integer.parseInt(lowerCaseQuery.split(" ")[2]);
-            int second = Integer.parseInt(lowerCaseQuery.split(" ")[4]);
-            int sum = first + second;
+            //c86ef9b0:  what is 14 plus 13 plus 4
+            String[] allWords = lowerCaseQuery.split(" ");
+            int sum = 0;
+            for (int i = 2; i < allWords.length; i = i + 2) {
+                sum = sum + Integer.parseInt(allWords[i]);
+            }
 
             return String.format("%d", sum);
         } else if (lowerCaseQuery.contains("what is") && lowerCaseQuery.contains("minus")) {

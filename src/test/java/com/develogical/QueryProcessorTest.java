@@ -36,6 +36,11 @@ public class QueryProcessorTest {
     }
 
     @Test
+    public void canSumMultipleNumbers() throws Exception {
+        assertThat(queryProcessor.process("1c0c0400: what is 6 plus 3 plus 3"), containsString("12"));
+    }
+
+    @Test
     public void miltipliesNumbers() throws Exception {
         assertThat(queryProcessor.process("f8d2e550: what is 5 multiplied by 6"), containsString("30"));
     }
