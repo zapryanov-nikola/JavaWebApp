@@ -47,7 +47,9 @@ public class QueryProcessor {
                     both = actualNumber;
                 }
             }
-
+            if (both == 0) {
+                return "";
+            }
             return String.format("%d", both);
         } else if (lowerCaseQuery.contains("which city is the eiffel tower in")) {
             return "Paris";
