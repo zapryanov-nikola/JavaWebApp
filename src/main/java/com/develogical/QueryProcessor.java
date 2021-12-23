@@ -49,6 +49,8 @@ public class QueryProcessor {
             }
 
             return String.format("%d", both);
+        } else if (lowerCaseQuery.contains("which city is the eiffel tower in")) {
+            return "Paris";
         }
         return "";
     }

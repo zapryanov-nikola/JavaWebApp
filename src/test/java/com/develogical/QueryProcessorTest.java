@@ -50,7 +50,12 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("b15a1560: which of the following numbers is both a square and a cube: 46656, 93"), containsString("46656"));
     }
 
-    
+    @Test
+    public void knowsWhereEiffelTowerIs() throws Exception {
+        assertThat(queryProcessor.process("49cfac60: which city is the Eiffel tower in"), containsString("Paris"));
+    }
+
+
     @Test
     public void isNotCaseSensitive() throws Exception {
         assertThat(queryProcessor.process("1c0c0400: shakespeare"), containsString("playwright"));
