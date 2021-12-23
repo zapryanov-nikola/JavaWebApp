@@ -36,10 +36,14 @@ public class QueryProcessorTest {
     }
 
     @Test
+    public void miltipliesNumbers() throws Exception {
+        assertThat(queryProcessor.process("f8d2e550: what is 5 multiplied by 6"), containsString("30"));
+    }
+
+    @Test
     public void findsLargest() throws Exception {
         assertThat(queryProcessor.process("11f0d840: which of the following numbers is the largest: 998, 6"), containsString("998"));
     }
-
     
     
     @Test

@@ -31,6 +31,12 @@ public class QueryProcessor {
             }
 
             return String.format("%d", max);
+        } else if (lowerCaseQuery.contains("what is") && lowerCaseQuery.contains("multiplied by")) {
+            int first = Integer.parseInt(query.toLowerCase().split(" ")[3]);
+            int second = Integer.parseInt(query.toLowerCase().split(" ")[6]);
+            int product = first * second;
+
+            return String.format("%d", product);
         }
         return "";
     }
