@@ -60,6 +60,11 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("addc8f80: which of the following numbers are primes: 118, 191, 29, 839"), containsString("191"));
     }
 
+    @Test
+    public void findsNthFibonacciTerm() throws Exception {
+        assertThat(queryProcessor.process("1d944e40: what is the 10th number in the Fibonacci sequence" ), containsString("55"));
+    }
+
 
     @Test
     public void isNotCaseSensitive() throws Exception {

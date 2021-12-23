@@ -60,6 +60,10 @@ public class QueryProcessor {
                 }
             }
             return "";
+        } else if (lowerCaseQuery.contains("number in the fibonacci sequence")) {
+            int term = Integer.parseInt(removeLastChar(lowerCaseQuery.split(" ")[3], 2));
+
+            return String.format("%d", fibonacci(term - 1));
         }
         return "";
     }
@@ -91,5 +95,20 @@ public class QueryProcessor {
                 return false;
 
         return true;
+    }
+
+    private static String removeLastChar(String s, int index) {
+        return (s == null || s.length() == 0)
+                ? null
+                : (s.substring(0, s.length() - index));
+    }
+
+    public static int fibonacci(int n) {
+
+        if (n == 0 || n == 1) {
+            return 1;
+        }
+
+        return fibonacci(n - 2) + (fibonacci(n - 1));
     }
 }
